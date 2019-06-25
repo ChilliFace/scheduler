@@ -1,13 +1,18 @@
 const schedule = require('node-schedule');
-
+const jobsPath = require("path").join(__dirname, "../tasks/");
+const validator = require('./task-validator');
+var taskErrors = [];
 let tasks=[];
-var jobsPath = require("path").join(__dirname, "tasks/");
 
 //Get all the jobs
-require("fs").readdirSync(jobsPath) 
+require("fs").readdirSync(jobsPath)
   .forEach(file=>{
-    if (validator.validateTask(file)) {
-      jobs.push(require("./tasks/"+file));
+    var task=require(jobsPath+file);
+
+    if (validator.validateTask(task)) {
+      tasks.push(task);
+    } else {
+      console.log (validator.errors);
     }
   }
 );
