@@ -1,7 +1,7 @@
 module.exports = {
   errors:[],
 
-  expectedFunctions: [ 'start', 'stop'],
+  expectedFunctions: [ 'start', 'stop', 'progress'],
 
   validateTask: function (task) {
     this.errors=[];

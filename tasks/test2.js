@@ -1,5 +1,8 @@
 module.exports = {
   schedule:0,
   start: function () {},
-  stop: function () {console.log('stopped');}
+  stop: function () {},
+  progress: function () {
+    console.log('progress 2');
+  }
 }
